@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-// Important Functions: selectOption
+/// Hidden Dropdowans are those in which select and option tags are not present and also, 
+//not able to find xpaths as xpaths are hidden.
 
 test('Handle Hidden DropDowns (Select Job Title as Automation Tester', async({page})=>{
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
