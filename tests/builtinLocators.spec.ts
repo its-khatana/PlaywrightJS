@@ -30,7 +30,15 @@ test("get By Alt text", async({page})=>{
 });
 
 
-test.only("get by text (Prefferd for non-interactive text elements)", async({page})=>{
+test("get by text (Prefferd for non-interactive text elements)", async({page})=>{
     await page.goto("https://www.demoblaze.com/");
     await page.getByText("Home").click();  // Note: Preffed for non intereactive text elements (div, span)
+});
+
+
+test.only("Get by Placeholder", async({page})=>{
+    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    await page.getByPlaceholder("Username").fill("Admin")
+    await page.getByPlaceholder("Password").fill("admin123")
+    await page.getByRole('button', {name: ' Login '}).click()
 });
