@@ -22,3 +22,9 @@ test('Testing Build in Locator', async({page})=>{
     // await page.click('id=login2')
     //Note: fill() and type() , both are same.
 });
+
+
+test.only("TestingAutowait", async({page})=>{
+    await page.goto("https://www.demoblaze.com/");
+    await page.locator("//input[@id='hello']") 
+});
