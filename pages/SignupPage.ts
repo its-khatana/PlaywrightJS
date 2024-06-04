@@ -28,7 +28,7 @@ export class SignupPage{
         const username = emailId.split('@')[0]
         const orgName =  'org' + getRandomString(5);
         const userDetails = {username: username, useremail: emailId, password: 'Cnvrg@123', orgName: orgName, orgslug: ''}
-        await this.page.goto("https://app.aks-cicd-23173.cicd.cnvrg.me/users/sign_up");
+        await this.page.goto("env/users/sign_up");
         await expect(await this.page.locator("//h3[normalize-space()='Turbocharge your data science']")).toBeVisible()
         await this.emailInput.fill(emailId)
         await this.userNameInput.fill(username)
@@ -43,7 +43,7 @@ export class SignupPage{
         await this.skipButton.click()
         await expect(await this.userNameHomePage).toBeVisible({timeout: 20000});
         console.log(await this.page.url())
-        await this.page.goto("https://app.aks-cicd-23173.cicd.cnvrg.me")
+        await this.page.goto("env")
         var fetchedUrl = await this.page.url()
         userDetails.orgslug = fetchedUrl.split('/')[1]
         console.log(userDetails.orgslug)

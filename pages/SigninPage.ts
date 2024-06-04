@@ -13,7 +13,7 @@ export class SigninPage {
     }
 
     async loginUser(email, password){
-        await this.page.goto("https://app.aks-cicd-23173.cicd.cnvrg.me/users/sign_in");
+        await this.page.goto("env/users/sign_in");
         await this.usernameInput.fill(email);
         await this.userpassInput.fill(password);
         await this.loginButton.click()

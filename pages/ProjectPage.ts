@@ -21,7 +21,7 @@ export class ProjectPage{
 
     async createProject(projectName, orgslug){
         this.projectName = projectName
-        await this.page.goto("https://app.aks-cicd-23173.cicd.cnvrg.me/"+orgslug);
+        await this.page.goto("env/"+orgslug);
         await this.createProjectButton.click();
         await expect(this.projectModal).toContainText("Start New Project")
         await this.projectTitileInput.fill(projectName)
