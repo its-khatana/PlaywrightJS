@@ -6,11 +6,13 @@ export class HomePage{
     readonly productList: string
     readonly addToCardButton: string
     readonly cartMenuButton: string
+    readonly logutOutButton: Locator
     constructor(page: Page) {
         this.page = page;
         this.productList = "//h4[contains(@class,'card-title')]"
         this.addToCardButton = "//a[normalize-space()='Add to cart']"
         this.cartMenuButton = "//a[normalize-space()='Cart']"
+        this.logutOutButton = page.locator("//a[@id='logout2']")
       }
     
     
@@ -33,5 +35,10 @@ export class HomePage{
 
     async gotoCart(){
         await this.page.goto("https://www.demoblaze.com/cart.html#")
+    }
+
+    async logout(){
+        await this.logutOutButton.click();
+        await expect(await this.page.locator("//a[@id='login2']")).toBeVisible();
     }
 }

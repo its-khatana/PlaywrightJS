@@ -4,12 +4,28 @@ import { HomePage } from "../pages/HomePage";
 import { CartPage } from "../pages/CartPage";
 
 
-test('Test POM', async({page})=>{
+
+test.beforeEach(async({page})=>{
     //Login
     const loginObject = new LoginPage(page);
     await loginObject.gotoLoginPage();
     await loginObject.login('testing939', 'testing939')
     await loginObject.verifyLoginSuccess();
+});
+
+
+test.afterEach(async({page})=>{
+    //logout
+    const logoutObject = new HomePage(page);
+    await logoutObject.logout();
+});
+
+test('Test POM', async({page})=>{
+    //Login
+    // const loginObject = new LoginPage(page);
+    // await loginObject.gotoLoginPage();
+    // await loginObject.login('testing939', 'testing939')
+    // await loginObject.verifyLoginSuccess();
 
     //Add Product to Cart from HomePage
     const homePageobject = new HomePage(page);
